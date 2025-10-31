@@ -1,0 +1,345 @@
+:root {
+  --main-background: hsl(226, 43%, 10%);
+  --background-profile-card: hsl(246, 80%, 60%);
+  --profile-menu-text: hsl(235, 45%, 61%);
+  --background-color-cards: hsl(235, 46%, 20%);
+  --secondary-text: hsl(236, 100%, 87%);
+
+  --work: hsl(15, 100%, 70%);
+  --play: hsl(195, 74%, 62%);
+  --study: hsl(348, 100%, 68%);
+  --exercise: hsl(145, 58%, 55%);
+  --social: hsl(264, 64%, 52%);
+  --self-care: hsl(43, 84%, 65%);
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("/public/fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("/public/fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--main-background);
+  font-family: "Rubik";
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  place-items: center;
+  padding: 80px 0px;
+}
+
+/* profile card */
+
+.profile-card {
+  border-radius: 14px;
+  width: 350px;
+  overflow: hidden;
+}
+
+.profile-card__avatar {
+  width: 70px;
+  height: 70px;
+  border: 2px solid white;
+  border-radius: 100%;
+  background-size: cover;
+}
+
+.profile-card__info {
+  background-color: var(--background-profile-card);
+  display: flex;
+  padding: 30px;
+  gap: 20px;
+}
+
+.profile-card__username {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-card__label {
+  color: var(--secondary-text);
+}
+
+.profile-card__name {
+  color: white;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.profile-card__options {
+  background-color: var(--background-color-cards);
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  color: var(--profile-menu-text);
+  padding: 20px 15px;
+  font-size: 18px;
+}
+
+.profile-card__button {
+  background: transparent;
+  border: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--secondary-text);
+}
+
+.profile-card__button--active {
+  color: white;
+}
+
+/* activity cards */
+
+.activity-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  width: 350px;
+  height: 200px;
+}
+
+/* background cards */
+.activity-card__background {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.activity-card__background--work {
+  background-color: var(--work);
+}
+
+.activity-card__background--play {
+  background-color: var(--play);
+}
+
+.activity-card__background--study {
+  background-color: var(--study);
+}
+
+.activity-card__background--exercise {
+  background-color: var(--exercise);
+}
+
+.activity-card__background--social {
+  background-color: var(--social);
+}
+
+.activity-card__background--self-care {
+  background-color: var(--self-care);
+}
+
+.activity-card__icon {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+/* ------ */
+
+.activity-card__content {
+  background-color: var(--background-color-cards);
+  padding: 30px;
+  color: white;
+  position: relative;
+  top: 50px;
+}
+
+.activity-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.activity-card__name-activity {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.activity-card__button {
+  background-color: transparent;
+  border: none;
+}
+
+.activity-card__timeframes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-card__current {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.activity-card__previus {
+  color: var(--secondary-text);
+}
+
+/* responsive */
+
+@media (width > 768px) {
+  .dashboard {
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  /* profile card */
+  .profile-card {
+    grid-row: 1 / 3;
+  }
+
+  .profile-card__info {
+    flex-direction: column;
+  }
+
+  .profile-card__username {
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+
+  .profile-card__name {
+    font-size: 42px;
+  }
+
+  .profile-card__options {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+  }
+
+  .profile-card__button {
+    transition: ease-in 200ms;
+  }
+
+  .profile-card__button:hover {
+    color: white;
+    cursor: pointer;
+  }
+
+  /* activity card */
+  .activity-card__content:hover {
+    background-color: hsl(237, 38%, 28%);
+    cursor: pointer;
+  }
+
+  .activity-card {
+    width: 280px;
+    height: 240px;
+  }
+
+  .activity-card__button {
+    cursor: pointer;
+  }
+
+  .activity-card__header {
+    margin-bottom: 30px;
+  }
+
+  .activity-card__timeframes {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+
+  .activity-card__current {
+    font-size: 42px;
+  }
+}
+
+@media (width > 1367px) {
+  .dashboard {
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  /* profile card */
+  .profile-card {
+    grid-row: 1 / 3;
+  }
+
+  .profile-card__info {
+    flex-direction: column;
+  }
+
+  .profile-card__username {
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+
+  .profile-card__name {
+    font-size: 42px;
+  }
+
+  .profile-card__options {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+  }
+
+  .profile-card__button {
+    transition: ease-in 200ms;
+  }
+
+  .profile-card__button:hover {
+    color: white;
+    cursor: pointer;
+  }
+
+  /* activity card */
+  .activity-card__content:hover {
+    background-color: hsl(237, 38%, 28%);
+    cursor: pointer;
+  }
+
+  .activity-card {
+    width: 280px;
+    height: 240px;
+  }
+
+  .activity-card__button {
+    cursor: pointer;
+  }
+
+  .activity-card__header {
+    margin-bottom: 30px;
+  }
+
+  .activity-card__timeframes {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+
+  .activity-card__current {
+    font-size: 42px;
+  }
+}
